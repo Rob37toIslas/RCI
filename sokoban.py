@@ -26,7 +26,7 @@ class sokoban:
             [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3],
             [3,1,1,1,1,1,1,1,1,3,3,3,3,3,3],
             [3,1,1,1,1,1,1,1,1,1,1,3,3,4,3],
-            [3,0,4,6,1,1,1,1,1,1,1,1,1,1,3],
+            [3,1,4,1,1,1,2,0,1,1,1,1,1,1,3],
             [3,1,1,1,1,1,1,1,1,1,1,1,1,1,3],
             [3,3,3,3,3,3,3,1,3,3,3,3,3,3,3],
             [3,3,3,3,3,3,3,1,3,3,3,3,3,3,3],
@@ -34,13 +34,14 @@ class sokoban:
             [3,3,3,3,3,3,3,1,3,3,3,3,3,3,3],
        ]
        self.personaje_fila = 3
-       self.personaje_columna = 1
+       self.personaje_columna = 7
       
     
   def imprimirMapa(self):
      for fila in self.mapa:
        print(fila)  
-  def moverDerecha(self):  #personaje espacio
+  def moverDerecha(self):#movimientos ala derecha 
+      #personaje espacio
      if (self.mapa[self.personaje_fila][self.personaje_columna] == 0
      and self.mapa[self.personaje_fila][self.personaje_columna + 1] == 1):
      
@@ -143,6 +144,41 @@ class sokoban:
          self.mapa[self.personaje_fila][self.personaje_columna+1]=5
          self.mapa[self.personaje_fila][self.personaje_columna+2]=6
          self.personaje_columna +=1
+  def moverIzquierda(self): #movimientos ala izquierda
+      #personaje,espacio
+     if (self.mapa[self.personaje_fila][self.personaje_columna] == 0
+     and self.mapa[self.personaje_fila][self.personaje_columna - 1] == 1):
+     
+         self.mapa[self.personaje_fila][self.personaje_columna] = 1
+         self.mapa[self.personaje_fila][self.personaje_columna - 1] = 0
+         self.personaje_columna -= 1
+         #personaje,meta
+     elif (self.mapa[self.personaje_fila][self.personaje_columna] == 5 
+     and self.mapa[self.personaje_fila][self.personaje_columna -1] == 1):
+        
+         self.mapa[self.personaje_fila][self.personaje_columna] = 4
+         self.mapa[self.personaje_fila][self.personaje_columna - 1] = 0
+         self.personaje_columna -= 1
+        #personaje_meta,espacio
+     elif (self.mapa[self.personaje_fila][self.personaje_columna] == 0
+      and self.mapa [self.personaje_fila][self.personaje_columna-1]== 4):
+          
+          self.mapa [self.personaje_fila][self.personaje_columna ]=1
+          self.mapa [self.personaje_fila][self.personaje_columna-1]=5
+          self.personaje_columna -=1
+         #personaje,caja,espacio 
+     elif (self.mapa[self.personaje_fila][self.personaje_columna-1]== 2
+     and self.mapa[self.personaje_fila][self.personaje_columna]== 0
+     and self.mapa[self.personaje_fila][self.personaje_columna-2]==1):
+
+         self.mapa[self.personaje_fila][self.personaje_columna]=1
+         self.mapa[self.personaje_fila][self.personaje_columna-2]=2
+         self.mapa[self.personaje_fila][self.personaje_columna-1]=0
+         self.personaje_columna -= 1
+         
+   
+         
+      
   def jugar (self):
     instrucciones="""
     a-izquierda
@@ -156,7 +192,9 @@ class sokoban:
         self.imprimirMapa()
         movimiento= input("mover hacia: ")
         if movimiento == "d":
-         self.moverDerecha()   
+         self.moverDerecha()  
+        elif movimiento == "a" :
+           self.moverIzquierda()  
         elif movimiento== "f":
           print("saliste del juego")
           break
