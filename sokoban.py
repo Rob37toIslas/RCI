@@ -11,53 +11,68 @@ class sokoban:
   #a-Izquierda
   #d-Derecha
   #w-arriba
-  #s-abajo
-  personaje = 0
-  espacio = 1
-  caja = 2
-  pared = 3
-  meta = 4
-  personaje_meta = 5
-  caja_meta = 6
-  
+  #s-abajo 
+
   mapa = []
   
-  personaje_fila=0
-  personaje_columna=0
+  personaje_fila = 0
+  personaje_columna = 0
   
-    #def __init__(self):
-     #pass
+  def __init__(self):
+      pass
   def leerMapa(self):
-      self.mapa = [
+    
+       self.mapa = [
             [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3],
             [3,1,1,1,1,1,1,1,1,3,3,3,3,3,3],
-            [3,1,1,1,1,1,1,0,1,1,1,3,3,4,3],
-            [3,1,1,1,1,1,1,1,1,1,1,1,1,2,3],
+            [3,1,1,1,1,1,1,1,1,1,1,3,3,4,3],
+            [3,0,4,1,1,2,1,1,1,1,1,2,1,1,3],
             [3,1,1,1,1,1,1,1,1,1,1,1,1,1,3],
             [3,3,3,3,3,3,3,1,3,3,3,3,3,3,3],
+            [3,3,3,3,3,3,3,1,3,3,3,3,3,3,3],
+            [3,3,3,3,3,3,3,1,3,3,3,3,3,3,3],
+            [3,3,3,3,3,3,3,1,3,3,3,3,3,3,3],
        ]
-      self.personaje_columna=7
-      self.personaje_fila=2
+       self.personaje_fila = 3
+       self.personaje_columna = 1
+      
     
   def imprimirMapa(self):
      for fila in self.mapa:
-       print(fila)
-  def mover_derecha(self):
-      print("Mover derecha")
-    #personaje espacio
-      if (self.mapa[self.personaje_fila][self.personaje_columna]== self.personaje 
-      and self.mapa[self.personaje_fila][self.personaje_columna +1]==self.espacio):
+       print(fila)  
+  def moverDerecha(self):  #personaje espacio
+     if (self.mapa[self.personaje_fila][self.personaje_columna] == 0
+     and self.mapa[self.personaje_fila][self.personaje_columna + 1] == 1):
      
-          self.mapa[self.personaje_fila][self.personaje_columna]==self.espacio
-          self.mapa[self.personaje_fila][self.personaje_columna +1]== self.personaje
-          self.mapa[self.personaje_fila][self.personaje_columna]=0
-          self.personaje_columna+=1
-      #Muñeco meta  
-      #elif (self.mapa[self.personaje_fila][self.personaje_columna]== 0 
-      #and self.mapa[self.personaje_fila][self.personaje_columna +1]==4):
-          #self.mapa[self.personaje_fila][self.personaje_columna]=1
-          #self.mapa[self.personaje_fila][self.personaje_columna]=5
-          #self.personaje_columna+=1
+         self.mapa[self.personaje_fila][self.personaje_columna] = 1
+         self.mapa[self.personaje_fila][self.personaje_columna + 1] = 0
+         self.personaje_columna += 1
+      #personaje meta  
+     elif (self.mapa[self.personaje_fila][self.personaje_columna] == 0 
+     and self.mapa[self.personaje_fila][self.personaje_columna +1] == 4):
+        
+         self.mapa[self.personaje_fila][self.personaje_columna] = 1
+         self.mapa[self.personaje_fila][self.personaje_columna + 1] = 5
+         self.personaje_columna += 1
+      #personaje_meta,espacio
+     elif (self.mapa[self.personaje_fila][self.personaje_columna] == 5 
+     and self.mapa[self.personaje_fila][self.personaje_columna +1] == 1):
+         
+          self.mapa[self.personaje_fila][self.personaje_columna] = 4
+          self.mapa[self.personaje_fila][self.personaje_columna + 1] = 0
+          self.personaje_columna += 1
+        
+      #personaje,caja,espacio
+     elif(self.mapa[self.personaje_fila][self.personaje_columna] == 0
+     and self.mapa[self.personaje_fila][self.personaje_columna +1 ] == 2
+     and self.mapa[self.personaje_fila][self.personaje_columna +2] == 1):    
+         
+     
+         self.mapa[self.personaje_fila][self.personaje_columna] = 1
+         self.mapa[self.personaje_fila][self.personaje_columna+1] = 0
+         self.mapa[self.personaje_fila][self.personaje_columna+2] = 2
+         self.personaje_columna += 1
+         
   def jugar (self):
     instrucciones="""
     a-izquierda
@@ -71,8 +86,8 @@ class sokoban:
         self.imprimirMapa()
         movimiento= input("mover hacia: ")
         if movimiento == "d":
-         self.mover_derecha()
-        elif movimiento=="f":
+         self.moverDerecha()   
+        elif movimiento== "f":
           print("saliste del juego")
           break
 
