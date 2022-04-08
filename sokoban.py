@@ -27,9 +27,9 @@ class sokoban:
             [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
             [3, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 3, 3, 3, 3],
             [3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 4, 3],
-            [3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 4, 3],
-            [3, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 3, 3, 4, 3],
-            [3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 4, 3],
+            [3, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 3, 3, 4, 3],
+            [3, 1, 1, 1, 1, 1, 1, 6, 1, 1, 1, 3, 3, 4, 3],
+            [3, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 3, 3, 4, 3],
             [3, 1, 1, 4, 4, 6, 4, 0, 1, 1, 1, 1, 1, 1, 3],
             [3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3],
             [3, 3, 3, 3, 3, 3, 3, 1, 3, 3, 3, 3, 3, 3, 3],
@@ -287,8 +287,80 @@ class sokoban:
             self.mapa[self.personaje_fila-1][self.personaje_columna] = 0
             self.mapa[self.personaje_fila ][self.personaje_columna ] = 1
             self.personaje_fila -= 1
+        #meta,caja,personaje
+        elif (self.mapa[self.personaje_fila-2][self.personaje_columna] == 4 
+              and self.mapa[self.personaje_fila-1][self.personaje_columna ] == 2
+              and self.mapa[self.personaje_fila][self.personaje_columna ] == 0):
 
-        #
+            self.mapa[self.personaje_fila-2][self.personaje_columna] = 6
+            self.mapa[self.personaje_fila-1][self.personaje_columna] = 0
+            self.mapa[self.personaje_fila ][self.personaje_columna ] = 1
+            self.personaje_fila -= 1          
+
+         #espacio,caja_meta,personaje
+        elif (self.mapa[self.personaje_fila-2][self.personaje_columna] == 1 
+              and self.mapa[self.personaje_fila-1][self.personaje_columna ] ==6 
+              and self.mapa[self.personaje_fila][self.personaje_columna ] == 0):
+
+            self.mapa[self.personaje_fila-2][self.personaje_columna] = 2
+            self.mapa[self.personaje_fila-1][self.personaje_columna] = 5
+            self.mapa[self.personaje_fila ][self.personaje_columna ] = 1
+            self.personaje_fila -= 1
+        #meta,caja_meta,personaje
+        elif (self.mapa[self.personaje_fila-2][self.personaje_columna] == 4 
+              and self.mapa[self.personaje_fila-1][self.personaje_columna ] ==6 
+              and self.mapa[self.personaje_fila][self.personaje_columna ] == 0):
+
+            self.mapa[self.personaje_fila-2][self.personaje_columna] = 6
+            self.mapa[self.personaje_fila-1][self.personaje_columna] = 5
+            self.mapa[self.personaje_fila ][self.personaje_columna ] = 1
+            self.personaje_fila -= 1    
+        #personaje_meta,meta
+        elif (self.mapa[self.personaje_fila-1][self.personaje_columna] == 4 
+         and self.mapa[self.personaje_fila][self.personaje_columna ] == 5):
+
+            self.mapa[self.personaje_fila ][self.personaje_columna] = 4
+            self.mapa[self.personaje_fila -1][self.personaje_columna ] = 5
+            self.personaje_fila -= 1  
+        #espacio,caja,personaje_meta
+        elif (self.mapa[self.personaje_fila-2][self.personaje_columna] == 1 
+              and self.mapa[self.personaje_fila-1][self.personaje_columna ] ==2 
+              and self.mapa[self.personaje_fila][self.personaje_columna ] == 5 ):
+
+            self.mapa[self.personaje_fila-2][self.personaje_columna] = 2
+            self.mapa[self.personaje_fila-1][self.personaje_columna] = 0
+            self.mapa[self.personaje_fila ][self.personaje_columna ] = 4
+            self.personaje_fila -= 1         
+        #meta,caja,personaje_meta
+        elif (self.mapa[self.personaje_fila-2][self.personaje_columna] == 4 
+              and self.mapa[self.personaje_fila-1][self.personaje_columna ] == 2 
+              and self.mapa[self.personaje_fila][self.personaje_columna ] == 5 ):
+
+            self.mapa[self.personaje_fila-2][self.personaje_columna] = 6
+            self.mapa[self.personaje_fila-1][self.personaje_columna] = 0
+            self.mapa[self.personaje_fila ][self.personaje_columna ] = 4
+            self.personaje_fila -= 1  
+        #espacio,caja_meta,personaje_meta          
+        elif (self.mapa[self.personaje_fila-2][self.personaje_columna] == 1 
+              and self.mapa[self.personaje_fila-1][self.personaje_columna ] == 6 
+              and self.mapa[self.personaje_fila][self.personaje_columna ] == 5 ):
+
+            self.mapa[self.personaje_fila-2][self.personaje_columna] = 2
+            self.mapa[self.personaje_fila-1][self.personaje_columna] = 5
+            self.mapa[self.personaje_fila ][self.personaje_columna ] = 4
+            self.personaje_fila -= 1     
+        #meta,caja_meta,personaje_meta
+        elif (self.mapa[self.personaje_fila-2][self.personaje_columna] == 4
+              and self.mapa[self.personaje_fila-1][self.personaje_columna ] == 6 
+              and self.mapa[self.personaje_fila][self.personaje_columna ] == 5 ):
+
+            self.mapa[self.personaje_fila -2][self.personaje_columna] = 6
+            self.mapa[self.personaje_fila-1][self.personaje_columna] = 5
+            self.mapa[self.personaje_fila ][self.personaje_columna ] = 4
+            self.personaje_fila -= 1               
+                  
+        
+          
 
 
     def jugar(self):
