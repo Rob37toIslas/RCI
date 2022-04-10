@@ -357,9 +357,18 @@ class sokoban:
             self.mapa[self.personaje_fila -2][self.personaje_columna] = 6
             self.mapa[self.personaje_fila-1][self.personaje_columna] = 5
             self.mapa[self.personaje_fila ][self.personaje_columna ] = 4
-            self.personaje_fila -= 1               
-                  
-        
+            self.personaje_fila -= 1
+    def moverabajo (self):
+        #personaje espacio
+
+        if (self.mapa[self.personaje_fila +1][self.personaje_columna] == 1
+        and self.mapa[self.personaje_fila ][self.personaje_columna]== 0):
+
+            self.mapa[self.personaje_fila +1][self.personaje_columna] = 0
+            self.mapa[self.personaje_fila][self.personaje_columna]= 1
+            self.personaje_fila += 1  
+
+
           
 
 
@@ -381,6 +390,8 @@ class sokoban:
                 self.moverIzquierda()
             elif movimiento == "w":
                 self.moverarriba()
+            elif movimiento == "x":
+                self.moverabajo()
             elif movimiento == "f":
                 print("saliste del juego")
                 break
