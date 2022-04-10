@@ -37,11 +37,11 @@ class sokoban: #creamos una clase para el juego
             [3, 3, 3, 3, 3, 3, 3, 1, 3, 3, 3, 3, 3, 3, 3],
             [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
         ]
-        self.personaje_fila = 6
-        self.personaje_columna = 7
+        self.personaje_fila = 6#define la pocicion del personaje en fila
+        self.personaje_columna = 7#define la posicion del personaje en columnna
 
-    def imprimirMapa(self):
-        for fila in self.mapa:
+    def imprimirMapa(self):#metodo para imprimir mapa
+        for fila in self.mapa: 
             print(fila)
 
     def moverDerecha(self):  #movimientos ala derecha
@@ -394,26 +394,26 @@ class sokoban: #creamos una clase para el juego
           
 
 
-    def jugar(self):
-        instrucciones = """
+    def jugar(self):#Variable para definir los controles del juego
+        instrucciones = """ 
     a-izquierda
     d-derecha
     x-abajo
     w-arriba
     """
-        print(instrucciones)
+        print(instrucciones)#imprimimos las instrucciones 
         self.leerMapa()
-        while True:
-            self.imprimirMapa()
-            movimiento = input("mover hacia: ")
-            if movimiento == "d":
-                self.moverDerecha()
-            elif movimiento == "a":
-                self.moverIzquierda()
-            elif movimiento == "w":
-                self.moverarriba()
-            elif movimiento == "x":
-                self.moverabajo()
+        while True:#bucle para jugar varias veces
+            self.imprimirMapa()#imprime el mapa
+            movimiento = input("mover hacia: ") #el movimiento es igual a un caracter ingresado por el ususario
+            if movimiento == "d" or movimiento =="D": #tecla d minuscula o D mayuscula mueve al personaje ala derecha
+                self.moverDerecha()#llamamos al metodo "mover ala derecha"
+            elif movimiento == "a":#tecla "a" mueve al personaje ala izquierda
+                self.moverIzquierda()#llama al metodo "mover ala izquierda"
+            elif movimiento == "w":#tecla "w" mueve personaje asia arriba
+                self.moverarriba()#llamamos al metodo  mover asia arriba
+            elif movimiento == "x":#tecla "x" mueve el personaje asia abajo
+                self.moverabajo()#llamamos al metodo mover asia abajo
             elif movimiento == "f":
                 print("saliste del juego")
                 break
