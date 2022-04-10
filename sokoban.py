@@ -43,7 +43,17 @@ class sokoban: #creamos una clase para el juego
     def imprimirMapa(self):#metodo para imprimir mapa
         for fila in self.mapa: 
             print(fila)
-
+    def imprimirMapa(self):#metodo para imprimir mapa        
+        for i in self.mapa :
+            if i == "1":
+             print("",end-"")
+            elif i == 3:
+              print(chr(254),end-"") 
+            elif i == 0:
+             print(chr(229),end-"")
+            else:
+             print(i, end = "")
+     print()
     def moverDerecha(self):  #movimientos ala derecha
         #personaje espacio
         if (self.mapa[self.personaje_fila][self.personaje_columna] == 0
@@ -52,7 +62,7 @@ class sokoban: #creamos una clase para el juego
             self.mapa[self.personaje_fila][self.personaje_columna] = 1
             self.mapa[self.personaje_fila][self.personaje_columna + 1] = 0
             self.personaje_columna += 1
-        #personaje meta
+        #personaje,meta
         elif (self.mapa[self.personaje_fila][self.personaje_columna] == 0 and
               self.mapa[self.personaje_fila][self.personaje_columna + 1] == 4):
 
