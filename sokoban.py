@@ -31,10 +31,10 @@ class sokoban: #creamos una clase para el juego
             [3, 1, 1, 1, 1, 1, 1, 6, 1, 1, 1, 3, 3, 4, 3],
             [3, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 3, 3, 4, 3],
             [3, 1, 1, 4, 4, 6, 4, 0, 1, 1, 1, 1, 1, 1, 3],
-            [3, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 3],
-            [3, 3, 3, 3, 3, 3, 3, 1, 3, 3, 3, 3, 3, 3, 3],
-            [3, 3, 3, 3, 3, 3, 3, 1, 3, 3, 3, 3, 3, 3, 3],
-            [3, 3, 3, 3, 3, 3, 3, 1, 3, 3, 3, 3, 3, 3, 3],
+            [3, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 1, 1, 1, 3],
+            [3, 3, 1, 1, 3, 3, 1, 6, 4, 3, 1, 1, 1, 3, 3],
+            [3, 3, 1, 1, 1, 1, 1, 4, 6, 1, 1, 1, 1, 1, 3],
+            [3, 3, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 1, 3, 3],
             [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
         ]
         self.personaje_fila = 6#define la pocicion del personaje en fila
@@ -388,8 +388,78 @@ class sokoban: #creamos una clase para el juego
             self.mapa[self.personaje_fila +2][self.personaje_columna] = 2
             self.mapa[self.personaje_fila +1][self.personaje_columna] = 0
             self.mapa[self.personaje_fila ][self.personaje_columna ] = 1
-            self.personaje_fila += 1    
+            self.personaje_fila += 1  
+        #Personaje,caja,meta
+        elif (self.mapa[self.personaje_fila+2][self.personaje_columna] == 4 
+              and self.mapa[self.personaje_fila+1][self.personaje_columna ] == 2
+              and self.mapa[self.personaje_fila][self.personaje_columna ] == 0):
 
+            self.mapa[self.personaje_fila+2][self.personaje_columna] = 6
+            self.mapa[self.personaje_fila+1][self.personaje_columna] = 0
+            self.mapa[self.personaje_fila ][self.personaje_columna ] = 1
+            self.personaje_fila += 1          
+
+         #personaje,caja_meta,espacio
+        elif (self.mapa[self.personaje_fila +2][self.personaje_columna] == 1 
+              and self.mapa[self.personaje_fila+1][self.personaje_columna ] ==6 
+              and self.mapa[self.personaje_fila][self.personaje_columna ] == 0):
+
+            self.mapa[self.personaje_fila+2][self.personaje_columna] = 2
+            self.mapa[self.personaje_fila+1][self.personaje_columna] = 5
+            self.mapa[self.personaje_fila ][self.personaje_columna ] = 1
+            self.personaje_fila += 1
+        #personaje,caja_meta,meta
+        elif (self.mapa[self.personaje_fila +2][self.personaje_columna] == 4 
+              and self.mapa[self.personaje_fila +1][self.personaje_columna ] ==6 
+              and self.mapa[self.personaje_fila][self.personaje_columna ] == 0):
+
+            self.mapa[self.personaje_fila +2][self.personaje_columna] = 6
+            self.mapa[self.personaje_fila +1][self.personaje_columna] = 5
+            self.mapa[self.personaje_fila ][self.personaje_columna ] = 1
+            self.personaje_fila += 1    
+        #personaje_meta,meta
+        elif (self.mapa[self.personaje_fila +1][self.personaje_columna] == 4 
+         and self.mapa[self.personaje_fila][self.personaje_columna ] == 5):
+
+            self.mapa[self.personaje_fila ][self.personaje_columna] = 4
+            self.mapa[self.personaje_fila +1][self.personaje_columna ] = 5
+            self.personaje_fila += 1  
+        #personaje_meta,caja,espacio
+        elif (self.mapa[self.personaje_fila+2][self.personaje_columna] == 1 
+              and self.mapa[self.personaje_fila +1][self.personaje_columna ] ==2 
+              and self.mapa[self.personaje_fila][self.personaje_columna ] == 5 ):
+
+            self.mapa[self.personaje_fila +2][self.personaje_columna] = 2
+            self.mapa[self.personaje_fila +1][self.personaje_columna] = 0
+            self.mapa[self.personaje_fila ][self.personaje_columna ] = 4
+            self.personaje_fila += 1         
+        #personaje_meta,caja,meta
+        elif (self.mapa[self.personaje_fila +2][self.personaje_columna] == 4 
+              and self.mapa[self.personaje_fila +1][self.personaje_columna ] == 2 
+              and self.mapa[self.personaje_fila][self.personaje_columna ] == 5 ):
+
+            self.mapa[self.personaje_fila +2][self.personaje_columna] = 6
+            self.mapa[self.personaje_fila +1][self.personaje_columna] = 0
+            self.mapa[self.personaje_fila ][self.personaje_columna ] = 4
+            self.personaje_fila += 1  
+       #personaje_meta,caja_meta,espacio          
+        elif (self.mapa[self.personaje_fila+2][self.personaje_columna] == 1 
+              and self.mapa[self.personaje_fila+1][self.personaje_columna ] == 6 
+              and self.mapa[self.personaje_fila][self.personaje_columna ] == 5 ):
+
+            self.mapa[self.personaje_fila+2][self.personaje_columna] = 2
+            self.mapa[self.personaje_fila+1][self.personaje_columna] = 5
+            self.mapa[self.personaje_fila ][self.personaje_columna ] = 4
+            self.personaje_fila += 1     
+        #personaje_meta,caja_meta,meta
+        elif (self.mapa[self.personaje_fila +2][self.personaje_columna] == 4
+              and self.mapa[self.personaje_fila +1][self.personaje_columna ] == 6 
+              and self.mapa[self.personaje_fila][self.personaje_columna ] == 5 ):
+
+            self.mapa[self.personaje_fila +2][self.personaje_columna] = 6
+            self.mapa[self.personaje_fila +1][self.personaje_columna] = 5
+            self.mapa[self.personaje_fila ][self.personaje_columna ] = 4
+            self.personaje_fila += 1
 
           
 
@@ -406,17 +476,17 @@ class sokoban: #creamos una clase para el juego
         while True:#bucle para jugar varias veces
             self.imprimirMapa()#imprime el mapa
             movimiento = input("mover hacia: ") #el movimiento es igual a un caracter ingresado por el ususario
-            if movimiento == "d" or movimiento =="D": #tecla d minuscula o D mayuscula mueve al personaje ala derecha
+            if movimiento == "d" or movimiento =="D": #tecla "d" minuscula o mayuscula mueve al personaje ala derecha
                 self.moverDerecha()#llamamos al metodo "mover ala derecha"
-            elif movimiento == "a":#tecla "a" mueve al personaje ala izquierda
+            elif movimiento == "a" or movimiento =="A":#tecla "a" minuscula o mayuscula mueve al personaje ala izquierda
                 self.moverIzquierda()#llama al metodo "mover ala izquierda"
-            elif movimiento == "w":#tecla "w" mueve personaje asia arriba
+            elif movimiento == "w" or movimiento=="W":#tecla "w" minuscula o mayuscula mueve personaje asia arriba
                 self.moverarriba()#llamamos al metodo  mover asia arriba
-            elif movimiento == "x":#tecla "x" mueve el personaje asia abajo
+            elif movimiento == "x" or movimiento=="X":#tecla "x" mayuscula o minuscula mueve el personaje asia abajo
                 self.moverabajo()#llamamos al metodo mover asia abajo
-            elif movimiento == "f":
-                print("saliste del juego")
-                break
+            elif movimiento == "f" or movimiento== "F":#Tecla para detener el juego
+                print("saliste del juego")#imprime el mensaje de salida
+                break#detiene el bucle
 
 
 juego = sokoban()
