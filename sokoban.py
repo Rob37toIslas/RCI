@@ -12,9 +12,7 @@ class sokoban: #creamos una clase para el juego
     #d-Derecha
     #w-arriba
     #s-abajo
-
     mapa = [] #variable para crear un mapa
-
     personaje_fila = 0 #pocicion del personaje
     personaje_columna = 0#pocicion del personaje 
 
@@ -38,22 +36,10 @@ class sokoban: #creamos una clase para el juego
             [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
         ]
         self.personaje_fila = 6#define la pocicion del personaje en fila
-        self.personaje_columna = 7#define la posicion del personaje en columnna
-
+        self.personaje_columna = 7#define la posicion del personaje en columnna   
     def imprimirMapa(self):#metodo para imprimir mapa
         for fila in self.mapa: 
-            print(fila)
-    def imprimirMapa(self):#metodo para imprimir mapa        
-        for i in self.mapa :
-            if i == "1":
-             print("",end-"")
-            elif i == 3:
-              print(chr(254),end-"") 
-            elif i == 0:
-             print(chr(229),end-"")
-            else:
-             print(i, end = "")
-     print()
+             print(fila)    
     def moverDerecha(self):  #movimientos ala derecha
         #personaje espacio
         if (self.mapa[self.personaje_fila][self.personaje_columna] == 0
@@ -493,7 +479,7 @@ class sokoban: #creamos una clase para el juego
             elif movimiento == "w" or movimiento=="W":#tecla "w" minuscula o mayuscula mueve personaje asia arriba
                 self.moverarriba()#llamamos al metodo  mover asia arriba
             elif movimiento == "x" or movimiento=="X":#tecla "x" mayuscula o minuscula mueve el personaje asia abajo
-                self.moverabajo()#llamamos al metodo mover asia abajo
+                self.moverabajo()#llamamos al metodo mover asia abajo      
             elif movimiento == "f" or movimiento== "F":#Tecla para detener el juego
                 print("saliste del juego")#imprime el mensaje de salida
                 break#detiene el bucle
