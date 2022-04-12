@@ -36,8 +36,8 @@ class sokoban: #creamos una clase para el juego
             [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
         ]
         self.personaje_fila = 6#define la pocicion del personaje en fila
-        self.personaje_columna = 7#define la posicion del personaje en columnna   
-    def imprimirMapa(self):#metodo para imprimir mapa
+        self.personaje_columna = 7#define la posicion del personaje en columnna          
+    def imprimirMapa(self):#metodo para imprimir mapa 
         for fila in self.mapa: 
              print(fila)    
     def moverDerecha(self):  #movimientos ala derecha
@@ -157,8 +157,8 @@ class sokoban: #creamos una clase para el juego
             self.mapa[self.personaje_fila][self.personaje_columna - 1] = 0
             self.personaje_columna -= 1
             #personaje,meta
-        elif (self.mapa[self.personaje_fila][self.personaje_columna] == 5 and
-              self.mapa[self.personaje_fila][self.personaje_columna - 1] == 1):
+        elif (self.mapa[self.personaje_fila][self.personaje_columna] == 5 
+        and self.mapa[self.personaje_fila][self.personaje_columna - 1] == 1):
 
             self.mapa[self.personaje_fila][self.personaje_columna] = 4
             self.mapa[self.personaje_fila][self.personaje_columna - 1] = 0
