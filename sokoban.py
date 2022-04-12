@@ -66,8 +66,7 @@ class sokoban: #creamos una clase para el juego
         #personaje,caja,espacio
         elif (self.mapa[self.personaje_fila][self.personaje_columna] == 0 and
               self.mapa[self.personaje_fila][self.personaje_columna + 1] == 2
-              and self.mapa[self.personaje_fila][self.personaje_columna + 2]
-              == 1):
+              and self.mapa[self.personaje_fila][self.personaje_columna + 2]== 1):
 
             self.mapa[self.personaje_fila][self.personaje_columna] = 1
             self.mapa[self.personaje_fila][self.personaje_columna + 1] = 0
