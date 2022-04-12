@@ -1,5 +1,12 @@
-mapa = open("l1_mapa.rci")
-contenido = mapa.read()
+
+mapa = open("l1.rci")
+imp = mapa.read()
 mapa.close() 
-print(contenido) 
+print(imp)
+
+
+
    
+     
+          
+
