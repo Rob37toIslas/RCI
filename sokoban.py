@@ -16,19 +16,19 @@ class sokoban: #creamos una clase para el juego
     personaje_fila = 0 #pocicion del personaje
     personaje_columna = 0#pocicion del personaje 
 
-    def __init__(self):
-        pass
+    def __init__(self):#Pone en modo privdo el comando  
+        pass#Permite seguir corriendo nuestro comando
 
     def leerMapa(self):#metodo para leer mapa
         
 
-        self.mapa = [
+        self.mapa = [ #Mapa de prueva que se va a imprimir para jugar
             [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
             [3, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 3, 3, 3],
-            [3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 3],
-            [3, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 3, 3, 3],
-            [3, 1, 1, 1, 1, 1, 1, 6, 1, 1, 1, 3, 3, 3],
-            [3, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 3, 3, 3],
+            [3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3],
+            [3, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 1, 1, 3],
+            [3, 1, 1, 1, 1, 1, 1, 6, 1, 1, 1, 1, 1, 3],
+            [3, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 1, 1, 3],
             [3, 1, 1, 4, 4, 6, 4, 0, 1, 1, 1, 1, 1, 3],
             [3, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 1, 1, 3],
             [3, 3, 1, 1, 3, 3, 1, 6, 4, 3, 1, 1, 1, 3],
@@ -39,10 +39,23 @@ class sokoban: #creamos una clase para el juego
         self.personaje_fila = 6#define la pocicion del personaje en fila
         self.personaje_columna = 7#define la posicion del personaje en columnna    
     
-    def imprimirMapa(self):#metodo para imprimir mapa 
-        for fila in self.mapa: 
-             print(fila)    
-    def moverDerecha(self):#movimientos ala derecha
+        
+    def imprimirMapa(self): #Metodo para imprimir el mapa
+      for j in range(12):#Recorre cada caracterer del juego
+        for i in range(14):
+          if self.mapa[j][i] == 1:#Si encuentra un numero 1 -  espacio
+            #for a in range(len(self.mapa[0])):
+            print(chr(32), end = "")#Cambiar un 1 por un ""  
+          elif self.mapa[j][i] == 3: #3-pared
+            print(chr(294), end = "")#Cambia un 3 por un simbolo
+          elif self.mapa[j][i] == 0: #3-pared
+            print(chr(169), end = "")#Cambia un 3 por un simbolo    
+          else:
+            print(self.mapa[j][i], end="")
+        print()
+      print() #Imprime una linea vacia
+      #mover
+    def moverDerecha(self):#Define movimientos ala derecha
         #personaje espacio
         if (self.mapa[self.personaje_fila][self.personaje_columna] == 0
                 and self.mapa[self.personaje_fila][self.personaje_columna + 1]== 1):
@@ -150,7 +163,7 @@ class sokoban: #creamos una clase para el juego
             self.mapa[self.personaje_fila][self.personaje_columna + 2] = 6
             self.personaje_columna += 1
 
-    def moverIzquierda(self):  #movimientos ala izquierda
+    def moverIzquierda(self): #Define los movimientos ala izquierda
         #personaje,espacio
         if (self.mapa[self.personaje_fila][self.personaje_columna] == 0
                 and self.mapa[self.personaje_fila][self.personaje_columna - 1]== 1):
@@ -463,13 +476,13 @@ class sokoban: #creamos una clase para el juego
 
     def jugar(self):#Variable para definir los controles del juego
         instrucciones = """ 
-    a-izquierda
-    d-derecha
-    x-abajo
-    w-arriba
-    """
+            A-izquierda
+            D-derecha
+            x-abajo
+            W-arriba
+    """#variable para definir las reglas
         print(instrucciones)#imprimimos las instrucciones 
-        self.leerMapa()
+        self.leerMapa()#leer mapa 
         while True:#bucle para jugar varias veces
             self.imprimirMapa()#imprime el mapa
             movimiento = input("mover hacia: ") #el movimiento es igual a un caracter ingresado por el ususario
@@ -486,5 +499,5 @@ class sokoban: #creamos una clase para el juego
                 break#detiene el bucle
 
 
-juego = sokoban()
-juego.jugar()
+juego = sokoban()#objeto para correr sokoban
+juego.jugar()#objeto para correr reglas y cotroles
