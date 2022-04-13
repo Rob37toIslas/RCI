@@ -26,14 +26,14 @@ class sokoban: #creamos una clase para el juego
             [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
             [3, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 3, 3, 3],
             [3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3],
-            [3, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 1, 1, 3],
-            [3, 1, 1, 1, 1, 1, 1, 6, 1, 1, 1, 1, 1, 3],
-            [3, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 1, 1, 3],
-            [3, 1, 1, 4, 4, 6, 4, 0, 1, 1, 1, 1, 1, 3],
-            [3, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 1, 1, 3],
-            [3, 3, 1, 1, 3, 3, 1, 6, 4, 3, 1, 1, 1, 3],
-            [3, 3, 1, 1, 1, 1, 1, 4, 6, 1, 1, 1, 1, 3],
-            [3, 3, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 1, 3],
+            [3, 3, 3, 3, 1, 1, 2, 1, 1, 1, 1, 1, 1, 3],
+            [3, 4, 4, 1, 1, 1, 1, 1, 1, 6, 1, 1, 1, 3],
+            [3, 4, 4, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3],
+            [3, 3, 3, 3, 1, 1, 1, 0, 1, 1, 1, 1, 1, 3],
+            [3, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 3],
+            [3, 3, 1, 1, 1, 3, 1, 1, 1, 3, 1, 1, 1, 3],
+            [3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 3],
+            [3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3],
             [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
         ]
         self.personaje_fila = 6#define la pocicion del personaje en fila
@@ -49,7 +49,7 @@ class sokoban: #creamos una clase para el juego
           elif self.mapa[j][i] == 3: #3-pared
             print(chr(294), end = "")#Cambia un 3 por un simbolo
           elif self.mapa[j][i] == 0: #3-pared
-            print(chr(169), end = "")#Cambia un 3 por un simbolo    
+            print(chr(82), end = "")#Cambia un 3 por un simbolo    
           else:
             print(self.mapa[j][i], end="")
         print()
@@ -161,7 +161,7 @@ class sokoban: #creamos una clase para el juego
             self.mapa[self.personaje_fila][self.personaje_columna] = 4
             self.mapa[self.personaje_fila][self.personaje_columna + 1] = 5
             self.mapa[self.personaje_fila][self.personaje_columna + 2] = 6
-            self.personaje_columna += 1
+            self.personaje_columna += 1                    
 
     def moverIzquierda(self): #Define los movimientos ala izquierda
         #personaje,espacio
@@ -476,10 +476,10 @@ class sokoban: #creamos una clase para el juego
 
     def jugar(self):#Variable para definir los controles del juego
         instrucciones = """ 
-            A-izquierda
-            D-derecha
-            x-abajo
-            W-arriba
+        A-izquierda
+        D-derecha
+        x-abajo
+        W-arriba
     """#variable para definir las reglas
         print(instrucciones)#imprimimos las instrucciones 
         self.leerMapa()#leer mapa 
