@@ -476,10 +476,11 @@ class sokoban: #creamos una clase para el juego
 
     def jugar(self):#Variable para definir los controles del juego
         instrucciones = """ 
-        A-izquierda
-        D-derecha
-        x-abajo
-        W-arriba
+        Bienvenido estos son sus controles
+        A-a= Mover izquierda
+        D-d= Mover derecha
+        X-x= Mover abajo
+        W-w= Mover arriba
     """#variable para definir las reglas
         print(instrucciones)#imprimimos las instrucciones 
         self.leerMapa()#leer mapa 
