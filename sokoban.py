@@ -20,27 +20,29 @@ class sokoban: #creamos una clase para el juego
         pass
 
     def leerMapa(self):#metodo para leer mapa
+        
 
         self.mapa = [
-            [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
-            [3, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 3, 3, 3, 3],
-            [3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 4, 3],
-            [3, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 3, 3, 4, 3],
-            [3, 1, 1, 1, 1, 1, 1, 6, 1, 1, 1, 3, 3, 4, 3],
-            [3, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 3, 3, 4, 3],
-            [3, 1, 1, 4, 4, 6, 4, 0, 1, 1, 1, 1, 1, 1, 3],
-            [3, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 1, 1, 1, 3],
-            [3, 3, 1, 1, 3, 3, 1, 6, 4, 3, 1, 1, 1, 3, 3],
-            [3, 3, 1, 1, 1, 1, 1, 4, 6, 1, 1, 1, 1, 1, 3],
-            [3, 3, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 1, 3, 3],
-            [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+            [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+            [3, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 3, 3, 3],
+            [3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 3],
+            [3, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 3, 3, 3],
+            [3, 1, 1, 1, 1, 1, 1, 6, 1, 1, 1, 3, 3, 3],
+            [3, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 3, 3, 3],
+            [3, 1, 1, 4, 4, 6, 4, 0, 1, 1, 1, 1, 1, 3],
+            [3, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 1, 1, 3],
+            [3, 3, 1, 1, 3, 3, 1, 6, 4, 3, 1, 1, 1, 3],
+            [3, 3, 1, 1, 1, 1, 1, 4, 6, 1, 1, 1, 1, 3],
+            [3, 3, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 1, 3],
+            [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
         ]
         self.personaje_fila = 6#define la pocicion del personaje en fila
-        self.personaje_columna = 7#define la posicion del personaje en columnna          
+        self.personaje_columna = 7#define la posicion del personaje en columnna    
+    
     def imprimirMapa(self):#metodo para imprimir mapa 
         for fila in self.mapa: 
              print(fila)    
-    def moverDerecha(self):  #movimientos ala derecha
+    def moverDerecha(self):#movimientos ala derecha
         #personaje espacio
         if (self.mapa[self.personaje_fila][self.personaje_columna] == 0
                 and self.mapa[self.personaje_fila][self.personaje_columna + 1]== 1):
